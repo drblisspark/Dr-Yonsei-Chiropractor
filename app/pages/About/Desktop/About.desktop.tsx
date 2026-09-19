@@ -176,7 +176,7 @@ const AboutDesktop: React.FC = () => {
               </motion.div>
               {[ 'county', 'city', 'cityAppreciation', 'radio' ].map(key => (
                 <motion.div key={key} variants={fadeInUp} className="flex gap-3 p-3 items-center">
-                  <span className="material-symbols-outlined text-primary shrink-0" aria-hidden="true">military_tech</span>
+                  <span className="material-symbols-outlined text-slate-400 shrink-0" aria-hidden="true">award_star</span>
                   <p className="text-sm text-slate-600 dark:text-slate-400">{t(`about.awards.${key}`)}</p>
                 </motion.div>
               ))}

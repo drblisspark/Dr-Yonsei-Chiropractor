@@ -210,7 +210,7 @@ const HomeDesktop: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          {process.env.NODE_ENV !== 'development' && (
+          {process.env.NODE_ENV === 'development' && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

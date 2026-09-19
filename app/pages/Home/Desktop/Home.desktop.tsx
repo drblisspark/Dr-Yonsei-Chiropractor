@@ -210,20 +210,22 @@ const HomeDesktop: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="mt-14 flex justify-center"
-          >
-            <div className="w-full max-w-5xl rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
-              <img
-                src="/car_accident.gif"
-                alt="Animated illustration showing car accident impact and whiplash movement"
-                className="w-full h-auto"
-              />
-            </div>
-          </motion.div>
+          {process.env.NODE_ENV !== 'development' && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+              className="mt-14 flex justify-center"
+            >
+              <div className="w-full max-w-5xl rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <img
+                  src="/car_accident.gif"
+                  alt="Animated illustration showing car accident impact and whiplash movement"
+                  className="w-full h-auto"
+                />
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 

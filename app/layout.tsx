@@ -11,22 +11,24 @@ import { ConsentProvider } from './components/consent/ConsentContext';
 import { ConditionalCookieConsentBanner } from './components/privacy/ConditionalCookieConsentBanner';
 import { getInitialIsMobileFromHeaders } from './lib/get-initial-is-mobile';
 import { headers } from 'next/headers';
+import { targetKeywords } from './lib/seo';
 
 export const metadata: Metadata = {
-  title: "Yonsei Chiropractic - Upper Cervical Health Care",
-  description: "Dedicated to restoring your health through the precise Palmer Upper Cervical method in Los Angeles. Specialist in TMJ, car accidents, and natural healing.",
+  title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
+  description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
+  keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
   openGraph: {
     type: "website",
     url: "https://yonseichiro.com/",
-    title: "Yonsei Chiropractic - Upper Cervical Health Care",
-    description: "Dedicated to restoring your health through the precise Palmer Upper Cervical method in Los Angeles. Specialist in TMJ, car accidents, and natural healing.",
+    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
+    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
     images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yonsei Chiropractic - Upper Cervical Health Care",
-    description: "Dedicated to restoring your health through the precise Palmer Upper Cervical method in Los Angeles. Specialist in TMJ, car accidents, and natural healing.",
+    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
+    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
     images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
   },
   icons: {
@@ -86,6 +88,7 @@ export default async function RootLayout({
       }
     ],
     "medicalSpecialty": "Chiropractic",
+    "availableLanguage": ["English", "Korean"],
     "founder": {
       "@type": "Physician",
       "name": "Dr. Hyeon Joo Park, D.C., M.S.",

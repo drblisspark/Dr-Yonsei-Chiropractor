@@ -88,7 +88,7 @@ const HomeDesktop: React.FC = () => {
         />
 
         {/* Desktop Hero Content */}
-        <div className="max-w-[1440px] mx-auto px-10 pt-[140px] pb-24 relative z-10 w-full">
+        <div className="max-w-[1440px] mx-auto px-10 pt-[140px] pb-10 relative z-10 w-full">
           <div className="grid grid-cols-12 gap-16 xl:gap-24 items-center">
             <motion.div 
               initial="initial"
@@ -210,6 +210,20 @@ const HomeDesktop: React.FC = () => {
               </div>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className="mt-14 flex justify-center"
+          >
+            <div className="w-full max-w-5xl rounded-[32px] overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+              <img
+                src="/car_accident.gif"
+                alt="Animated illustration showing car accident impact and whiplash movement"
+                className="w-full h-auto"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 

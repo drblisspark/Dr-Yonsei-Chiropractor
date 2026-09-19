@@ -171,7 +171,7 @@ const AboutMobile: React.FC = () => {
               </motion.div>
               {[ 'county', 'city', 'cityAppreciation', 'radio' ].map(key => (
                 <motion.div key={key} variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }} className="flex gap-3 p-3 items-center">
-                  <span className="material-symbols-outlined text-slate-400 shrink-0" aria-hidden="true">award_star</span>
+                  <span className="material-symbols-outlined text-primary shrink-0" aria-hidden="true">military_tech</span>
                   <p className="text-xs text-slate-600 dark:text-slate-400">{t(`about.awards.${key}`)}</p>
                 </motion.div>
               ))}

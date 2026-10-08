@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script';
 import "./index.css";
 import React from 'react';
 import Navbar from './components/Navbar';
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
   description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
   keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
+  verification: {
+    google: 'wxhm81wqsTw9eo0C4QZeWZ3YnKJiE3PJpXF-JzeHqrI',
+  },
   openGraph: {
     type: "website",
     url: "https://yonseichiro.com/",
@@ -111,7 +115,7 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
 
-       {/* Google Analytics Tag */}
+        {/* Google Analytics Script */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-C6EERQJKNM"
           strategy="afterInteractive"
@@ -125,9 +129,6 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="wxhm81wqsTw9eo0C4QZeWZ3YnKJiE3PJpXF-JzeHqrI" />
-        
         <script
           dangerouslySetInnerHTML={{
             __html: `

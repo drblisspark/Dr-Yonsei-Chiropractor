@@ -35,13 +35,13 @@ export const metadata: Metadata = {
   },
 openGraph: {
     type: "website",
-    url: "https://yonseichiro.com/en",
+    url: "https://www.yonseichiro.com/en",
     title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
-    description: "Searching for a Korean speaking chiropractor in LA? Yonsei Chiropractic provides precise upper cervical care in Koreatown.",
+    description: "Searching for a Korean speaking chiropractor in Los Angeles? Yonsei Chiropractic specializes in Palmer Upper Cervical care, TMJ, and car accidents in 90010 and 90057.",
     siteName: "Yonsei Chiropractic",
     images: [
       {
-        url: "https://yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",
+        url: "https://www.yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",
         width: 1200,
         height: 630,
         alt: "Yonsei Chiropractic Clinic - Dr. Hyeon Joo Park",

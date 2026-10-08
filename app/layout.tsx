@@ -138,6 +138,13 @@ export default async function RootLayout({
       "url": "https://www.yonseichiro.com/en/",
       "inLanguage": "en",
       "publisher": { "@id": "https://www.yonseichiro.com/en/#business" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" }
+      ]
     }
   ];
 

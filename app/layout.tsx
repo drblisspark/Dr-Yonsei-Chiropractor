@@ -16,7 +16,7 @@ import { targetKeywords } from './lib/seo';
 
 export const metadata: Metadata = {
   title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-  description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
+  description: "Korean-speaking chiropractor in Los Angeles Koreatown (90010/90057). Yonsei Chiropractic specializes in Palmer Upper Cervical care, TMJ, and car accident recovery.",
   keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
   robots: {

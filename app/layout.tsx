@@ -120,7 +120,6 @@ export default async function RootLayout({
 
   gtag('config', 'G-C6EERQJKNM');
 </script>
-
           <meta name="google-site-verification" content="wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI" />
         <script
           dangerouslySetInnerHTML={{

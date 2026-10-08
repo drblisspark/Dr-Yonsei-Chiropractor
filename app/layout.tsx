@@ -129,6 +129,12 @@ export default async function RootLayout({
           `}
         </Script>
 
+        {/* Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI"
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `

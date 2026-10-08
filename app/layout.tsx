@@ -33,18 +33,27 @@ export const metadata: Metadata = {
   verification: {
     google: 'wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI',
   },
-  openGraph: {
+openGraph: {
     type: "website",
-    url: "https://yonseichiro.com/",
-    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
-    images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
+    url: "https://yonseichiro.com/en",
+    title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
+    description: "Searching for a Korean speaking chiropractor in LA? Yonsei Chiropractic provides precise upper cervical care in Koreatown.",
+    siteName: "Yonsei Chiropractic",
+    images: [
+      {
+        url: "https://yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Yonsei Chiropractic Clinic - Dr. Hyeon Joo Park",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
-    images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
+    site: "@yonseichiro", // Fixed missing twitter:site
+    title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
+    description: "Searching for a Korean speaking chiropractor in LA? Yonsei Chiropractic provides precise upper cervical care in Koreatown.",
+    images: ["https://yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
   },
   icons: {
     icon: '/logo.bmp',

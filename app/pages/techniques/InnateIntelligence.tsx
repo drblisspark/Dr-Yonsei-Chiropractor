@@ -17,8 +17,32 @@ const InnateIntelligence: React.FC<{ lng?: string; initialIsMobile?: boolean }> 
     }
   }, [lng, i18n]);
 
+  const innateIntelligenceSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Innate Intelligence & Chiropractic",
+      "serviceType": "Chiropractic Care",
+      "provider": { "@id": "https://www.yonseichiro.com/en/#business" },
+      "description": "Innate intelligence is the inborn biological force that coordinates the body from conception, communicating through the nervous system protected by the skull and spine. When interference disrupts that communication, the body can't function optimally — Yonsei Chiropractic removes this interference through upper cervical techniques to restore natural healing."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Techniques", "item": "https://www.yonseichiro.com/en/services" },
+        { "@type": "ListItem", "position": 3, "name": "Innate Intelligence", "item": "https://www.yonseichiro.com/en/techniques/innate-intelligence" }
+      ]
+    }
+  ];
+
   return (
     <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(innateIntelligenceSchema) }}
+      />
       {isMobile ? <InnateIntelligenceMobile /> : <InnateIntelligenceDesktop />}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 pb-12 w-full">
         <MedicalDisclaimer />

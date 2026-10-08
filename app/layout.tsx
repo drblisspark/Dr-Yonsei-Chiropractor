@@ -19,6 +19,17 @@ export const metadata: Metadata = {
   description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
   keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   verification: {
     google: 'wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI',
   },

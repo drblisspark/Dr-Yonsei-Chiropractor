@@ -110,6 +110,18 @@ export default async function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
+
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C6EERQJKNM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C6EERQJKNM');
+</script>
+
+          <meta name="google-site-verification" content="wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

@@ -51,8 +51,51 @@ const Insights: React.FC<{ lng: string }> = ({ lng }) => {
     }
   };
 
+  const insightsSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Yonsei Chiropractic Insights",
+      "url": "https://www.yonseichiro.com/en/insights",
+      "publisher": { "@id": "https://www.yonseichiro.com/en/#business" },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Top 3 Upper Cervical Essentials Patients Need to Know",
+          "datePublished": "2026-02-13",
+          "author": { "@type": "Person", "name": "Dr. Hyeon Joo Park" }
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "TMJ Relief & the Upper Cervical Link",
+          "datePublished": "2025-10-05",
+          "author": { "@type": "Person", "name": "Dr. Hyeon Joo Park" }
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Recovering After Car Accidents",
+          "datePublished": "2025-07-21",
+          "author": { "@type": "Person", "name": "Dr. Hyeon Joo Park" }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.yonseichiro.com/en/insights" }
+      ]
+    }
+  ];
+
   return (
     <div className="pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(insightsSchema) }}
+      />
+
       <SEO
         title={t('seo.insights.title')}
         description={t('seo.insights.description')}

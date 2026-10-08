@@ -17,8 +17,32 @@ const CarAccident: React.FC<{ lng?: string; initialIsMobile?: boolean }> = ({ ln
     }
   }, [lng, i18n]);
 
+  const carAccidentSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Car Accident & Whiplash Recovery",
+      "serviceType": "Chiropractic Care",
+      "provider": { "@id": "https://www.yonseichiro.com/en/#business" },
+      "description": "Car accident injuries often develop symptoms days or months after impact, and the absence of pain doesn't mean the absence of damage. Whiplash can cause upper cervical vertebrae damage that's difficult to detect on standard imaging — Yonsei Chiropractic treats the underlying nerve involvement rather than offering only temporary symptom relief, to help prevent chronic pain."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Techniques", "item": "https://www.yonseichiro.com/en/services" },
+        { "@type": "ListItem", "position": 3, "name": "Car Accident", "item": "https://www.yonseichiro.com/en/techniques/car-accident" }
+      ]
+    }
+  ];
+
   return (
     <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(carAccidentSchema) }}
+      />
       {isMobile ? <CarAccidentMobile /> : <CarAccidentDesktop />}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 pb-12 w-full">
         <MedicalDisclaimer />

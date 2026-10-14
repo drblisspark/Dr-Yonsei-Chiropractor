@@ -15,8 +15,8 @@ import { headers } from 'next/headers';
 import { targetKeywords } from './lib/seo';
 
 export const metadata: Metadata = {
-  title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-  description: "Korean-speaking chiropractor in Los Angeles Koreatown (90010/90057). Yonsei Chiropractic specializes in Palmer Upper Cervical care, TMJ, and car accident recovery.",
+  title: "Chiropractor in Los Angeles, CA | Yonsei Chiropractic",
+  description: "Affordable, Korean-speaking chiropractor in Los Angeles offering Palmer Upper Cervical care for neck pain, TMJ, and car accident recovery. Book today.",
   keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
   robots: {

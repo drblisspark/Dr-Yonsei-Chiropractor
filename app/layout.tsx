@@ -38,7 +38,7 @@ openGraph: {
     url: "https://www.yonseichiro.com/en",
     title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
     description: "Searching for a Korean speaking chiropractor in Los Angeles? Yonsei Chiropractic specializes in Palmer Upper Cervical care, TMJ, and car accidents in 90010 and 90057.",
-    siteName: "Yonsei Chiropractic",
+    siteName: "yonseichiro",
     images: [
       {
         url: "https://www.yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",

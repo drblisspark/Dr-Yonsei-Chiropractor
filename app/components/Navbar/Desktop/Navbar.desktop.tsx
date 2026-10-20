@@ -130,6 +130,7 @@ const NavbarDesktop: React.FC = () => {
               </AnimatePresence>
             </div>
             
+            
 {/* Services Dropdown */}
 <div className="relative" ref={servicesRef}>
   <button 
@@ -175,30 +176,8 @@ const NavbarDesktop: React.FC = () => {
     )}
   </AnimatePresence>
 </div>
-  
-  <AnimatePresence>
-    {isServicesOpen && (
-      <motion.div 
-        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        className="absolute top-full left-0 mt-3 w-72 bg-white dark:bg-[#0f172a] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-2xl py-3 z-50"
-      >
-        {services.map((service) => (
-          <Link
-            key={service.path}
-            to={service.path}
-            onClick={() => setIsServicesOpen(false)}
-            className="block px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white transition-colors"
-          >
-            {service.name}
-          </Link>
-        ))}
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
+
+            
             {/* Contact Dropdown */}
             <div className="relative" ref={contactRef}>
               <button 

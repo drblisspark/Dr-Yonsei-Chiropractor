@@ -217,13 +217,15 @@ const Footer: React.FC = () => {
                   yonseichiropractic@gmail.com
                 </Link>
               </div>
-              <Link
-                to="mailto:yonseichiropractic@gmail.com"
-                className="inline-flex items-center justify-center w-full h-11 px-5 rounded-xl bg-primary hover:bg-orange-600 text-white text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-2 active:translate-y-0"
-              >
-                <span className="mr-2 material-symbols-outlined text-[18px]" aria-hidden="true">calendar_month</span>
-                {t('nav.bookAppointment')}
-              </Link>
+<Link
+  to="tel:(213) 381-5500"
+  className="inline-flex items-center justify-center w-full h-11 px-5 rounded-xl bg-primary hover:bg-orange-600 text-white text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 mt-2 active:translate-y-0"
+>
+  <span className="mr-2 material-symbols-outlined text-[18px]" aria-hidden="true">
+    call
+  </span>
+  Call Now
+</Link>
             </div>
           </motion.div>
         </motion.div>

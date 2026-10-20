@@ -130,52 +130,51 @@ const NavbarDesktop: React.FC = () => {
               </AnimatePresence>
             </div>
             
-            {/* Techniques Dropdown */}
-            <div className="relative" ref={techniquesRef}>
-              <button 
-                onClick={() => {
-                  setIsTechniquesOpen(!isTechniquesOpen);
-                  setIsAboutOpen(false);
-                  setIsContactOpen(false);
-                }}
-                aria-haspopup="true"
-                aria-expanded={isTechniquesOpen}
-                className={`flex items-center gap-1 text-sm font-bold tracking-tight transition-all duration-200 px-3 py-1.5 rounded-lg ${
-                  pathname.includes('/techniques') 
-                    ? 'text-primary bg-primary/5' 
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
-              >
-                {t('nav.techniques')}
-                <span className={`material-symbols-outlined text-[18px] transition-transform duration-300 ${isTechniquesOpen ? 'rotate-180 text-primary' : ''}`} aria-hidden="true">
-                  expand_more
-                </span>
-              </button>
-              
-              <AnimatePresence>
-                {isTechniquesOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-full left-0 mt-3 w-72 bg-white dark:bg-[#0f172a] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-2xl py-3 z-50"
-                  >
-                    {techniques.map((tech) => (
-                      <Link
-                        key={tech.path}
-                        to={tech.path}
-                        onClick={() => setIsTechniquesOpen(false)}
-                        className="block px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white transition-colors"
-                      >
-                        {tech.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
+            {/* Services Dropdown */}
+<div className="relative" ref={servicesRef}>
+  <button 
+    onClick={() => {
+      setIsServicesOpen(!isServicesOpen);
+      setIsAboutOpen(false);
+      setIsContactOpen(false);
+    }}
+    aria-haspopup="true"
+    aria-expanded={isServicesOpen}
+    className={`flex items-center gap-1 text-sm font-bold tracking-tight transition-all duration-200 px-3 py-1.5 rounded-lg ${
+      pathname.includes('/services') 
+        ? 'text-primary bg-primary/5' 
+        : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800'
+    }`}
+  >
+    {t('nav.services')}
+    <span className={`material-symbols-outlined text-[18px] transition-transform duration-300 ${isServicesOpen ? 'rotate-180 text-primary' : ''}`} aria-hidden="true">
+      expand_more
+    </span>
+  </button>
+  
+  <AnimatePresence>
+    {isServicesOpen && (
+      <motion.div 
+        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="absolute top-full left-0 mt-3 w-72 bg-white dark:bg-[#0f172a] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-2xl py-3 z-50"
+      >
+        {services.map((service) => (
+          <Link
+            key={service.path}
+            to={service.path}
+            onClick={() => setIsServicesOpen(false)}
+            className="block px-5 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white transition-colors"
+          >
+            {service.name}
+          </Link>
+        ))}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
             {/* Contact Dropdown */}
             <div className="relative" ref={contactRef}>
               <button 

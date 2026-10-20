@@ -214,7 +214,7 @@ const Footer: React.FC = () => {
                   aria-label="Email us at yonseichiropractic@gmail.com"
                 >
                   <span className="material-symbols-outlined text-primary text-[20px]" aria-hidden="true">mail</span>
-                  {t('footer.email')}
+                  yonseichiropractic@gmail.com
                 </Link>
               </div>
               <Link

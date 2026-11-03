@@ -13,11 +13,9 @@ const NavbarDesktop: React.FC = () => {
   
   const [isTechniquesOpen, setIsTechniquesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const [isContactOpen, setIsContactOpen] = useState(false);
   
   const techniquesRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
 
   // Close dropdowns when clicking outside or pressing Escape
   useEffect(() => {
@@ -28,16 +26,12 @@ const NavbarDesktop: React.FC = () => {
       if (aboutRef.current && !aboutRef.current.contains(event.target as Node)) {
         setIsAboutOpen(false);
       }
-      if (contactRef.current && !contactRef.current.contains(event.target as Node)) {
-        setIsContactOpen(false);
-      }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsTechniquesOpen(false);
         setIsAboutOpen(false);
-        setIsContactOpen(false);
       }
     };
 
@@ -90,7 +84,6 @@ const NavbarDesktop: React.FC = () => {
                 onClick={() => {
                   setIsAboutOpen(!isAboutOpen);
                   setIsTechniquesOpen(false);
-                  setIsContactOpen(false);
                 }}
                 aria-haspopup="true"
                 aria-expanded={isAboutOpen}
@@ -136,7 +129,6 @@ const NavbarDesktop: React.FC = () => {
                 onClick={() => {
                   setIsTechniquesOpen(!isTechniquesOpen);
                   setIsAboutOpen(false);
-                  setIsContactOpen(false);
                 }}
                 aria-haspopup="true"
                 aria-expanded={isTechniquesOpen}
@@ -175,92 +167,17 @@ const NavbarDesktop: React.FC = () => {
                 )}
               </AnimatePresence>
             </div>
-
-            {/* Contact Dropdown */}
-            <div className="relative" ref={contactRef}>
-              <button 
-                onClick={() => {
-                  setIsContactOpen(!isContactOpen);
-                  setIsAboutOpen(false);
-                  setIsTechniquesOpen(false);
-                }}
-                className={`flex items-center gap-1 text-sm font-bold tracking-tight transition-all duration-200 px-3 py-1.5 rounded-lg ${
-                  isContactOpen || isActive(`/${lng}/contact`)
-                    ? 'text-primary bg-primary/5' 
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
-              >
-                {t('nav.contact')}
-                <span className={`material-symbols-outlined text-[18px] transition-transform duration-300 ${isContactOpen ? 'rotate-180 text-primary' : ''}`} aria-hidden="true">
-                  expand_more
-                </span>
-              </button>
-              
-              <AnimatePresence>
-                {isContactOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="absolute top-full right-0 mt-3 w-80 bg-white dark:bg-[#0f172a] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-2xl p-4 z-50"
-                  >
-                    <div className="flex flex-col gap-4">
-                      <Link 
-                        href="tel:2133815500" 
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                          <span className="material-symbols-outlined text-[20px]">call</span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">{t('contact.labels.phone')}</span>
-                          <span className="text-sm font-bold text-slate-900 dark:text-white">(213) 381-5500</span>
-                        </div>
-                      </Link>
-
-                      <Link 
-                        href="https://www.google.com/maps/search/?api=1&query=3200+Wilshire+Blvd+Suite+302+Los+Angeles+CA+90010"
-                        external
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                          <span className="material-symbols-outlined text-[20px]">location_on</span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">{t('contact.labels.address')}</span>
-                          <span className="text-sm font-bold text-slate-900 dark:text-white">3200 Wilshire Blvd #302, LA</span>
-                        </div>
-                      </Link>
-
-                      <Link 
-                        href="mailto:yonseichiropractic@gmail.com"
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group"
-                      >
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                          <span className="material-symbols-outlined text-[20px]">mail</span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">{t('contact.labels.email')}</span>
-                          <span className="text-sm font-bold text-slate-900 dark:text-white">yonseichiropractic@gmail.com</span>
-                        </div>
-                      </Link>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <Link
+              to={`/${lng}/contact`}
+              className={navLinkClass(`/${lng}/contact`)}
+            >
+              {t('nav.contact')}
+            </Link>
           </nav>
 
           {/* CTA area */}
           <div className="flex items-center gap-4">
             <LanguageToggle />
-            <Link
-              to={`/${lng}/contact`}
-              className="text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
-            >
-              {t('nav.contact')}
-            </Link>
             <Link 
               to="mailto:yonseichiropractic@gmail.com" 
               className="flex items-center justify-center h-11 px-6 rounded-xl bg-primary hover:bg-orange-600 text-white text-sm font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5 active:translate-y-0 focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"

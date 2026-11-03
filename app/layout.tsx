@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script';
 import "./index.css";
 import React from 'react';
 import Navbar from './components/Navbar';
@@ -14,22 +15,45 @@ import { headers } from 'next/headers';
 import { targetKeywords } from './lib/seo';
 
 export const metadata: Metadata = {
-  title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-  description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
+  title: "Chiropractor in Los Angeles, CA | Yonsei Chiropractic",
+  description: "Affordable, Korean-speaking chiropractor in Los Angeles offering Palmer Upper Cervical care for neck pain, TMJ, and car accident recovery. Book today.",
   keywords: targetKeywords,
   metadataBase: new URL('https://yonseichiro.com'),
-  openGraph: {
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI',
+  },
+openGraph: {
     type: "website",
-    url: "https://yonseichiro.com/",
-    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
-    images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
+    url: "https://www.yonseichiro.com/en",
+    title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
+    description: "Searching for a Korean speaking chiropractor in Los Angeles? Yonsei Chiropractic specializes in Palmer Upper Cervical care, TMJ, and car accidents in 90010 and 90057.",
+    siteName: "yonseichiro",
+    images: [
+      {
+        url: "https://www.yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Yonsei Chiropractic Clinic - Dr. Hyeon Joo Park",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Korean Chiropractor in Los Angeles | Yonsei Chiropractic",
-    description: "Korean chiropractor in Los Angeles 90010 providing precise upper cervical chiropractic care for neck pain, headaches, migraines, posture, TMJ, and car accident recovery.",
-    images: ["/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
+    site: "@yonseichiro", // Fixed missing twitter:site
+    title: "Korean Chiropractor in Los Angeles 90010 90057 | Yonsei Chiropractic",
+    description: "Searching for a Korean speaking chiropractor in LA? Yonsei Chiropractic provides precise upper cervical care in Koreatown.",
+    images: ["https://yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg"],
   },
   icons: {
     icon: '/logo.bmp',
@@ -50,52 +74,99 @@ export default async function RootLayout({
   const lng = headerLocale === 'ko' || headerLocale === 'en' ? headerLocale : 'en';
   const initialIsMobile = await getInitialIsMobileFromHeaders();
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "@id": "https://yonseichiro.com/#organization",
-    "name": lng === 'ko' ? "연세 카이로프랙틱" : "Yonsei Chiropractic",
-    "url": "https://yonseichiro.com",
-    "logo": "https://yonseichiro.com/logo.bmp",
-    "image": "https://yonseichiro.com/Yonsei-Chiropractic-Clinic_d9fbf4bc8dac09e90ec9aa08536041e5.jpg",
-    "description": lng === 'ko' ? "로스앤젤레스 상경추 전문 연세 카이로프랙틱 클리닉입니다." : "Specialized Palmer Upper Cervical Specific Chiropractic in Los Angeles.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "3200 Wilshire Blvd, Suite 302",
-      "addressLocality": "Los Angeles",
-      "addressRegion": "CA",
-      "postalCode": "90010",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 34.0617,
-      "longitude": -118.2917
-    },
-    "telephone": "+1-213-381-5500",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "@id": "https://www.yonseichiro.com/en/#business",
+      "name": "Yonsei Chiropractic",
+      "alternateName": "연세 카이로프랙틱",
+      "url": "https://www.yonseichiro.com/en/",
+      "logo": "https://www.yonseichiro.com/logo.bmp",
+      "image": "https://www.yonseichiro.com/logo.bmp",
+      "telephone": "+1-213-381-5500",
+      "email": "yonseichiropractic@gmail.com",
+      "description": "Korean-speaking chiropractic clinic in Los Angeles (Koreatown, 90010/90057) specializing in the Palmer Upper Cervical Specific Technique (H.I.O. method), led by Dr. Hyeon Joo Park, D.C., M.S.",
+      "additionalType": "https://schema.org/Chiropractic",
+      "priceRange": "$$",
+      "foundingDate": "2003",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3200 Wilshire Blvd, Suite 302",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "postalCode": "90010",
+        "addressCountry": "US"
       },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "13:00"
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "14:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Hyeon Joo Park",
+        "honorificSuffix": "D.C., M.S."
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Dr. Hyeon Joo Park",
+        "jobTitle": "Doctor of Chiropractic",
+        "honorificSuffix": "D.C., M.S."
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Los Angeles" },
+        { "@type": "Place", "name": "Koreatown, Los Angeles" }
+      ],
+      "knowsLanguage": ["en", "ko"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Chiropractic Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Upper Cervical Specific Care (H.I.O. Method)", "description": "Palmer Upper Cervical Specific technique focused on the atlas and axis (C1/C2) to relieve nerve pressure and restore full-body health." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "TMJ / TMD Treatment", "description": "Chiropractic adjustments addressing upper cervical misalignment linked to jaw pain, clicking, popping, and tension." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pediatric & Pre-natal Chiropractic Care", "description": "Gentle chiropractic treatment for infants, children, and expectant mothers." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Accident & Whiplash Treatment", "description": "Treatment for whiplash and other injuries from automobile accidents, including damage not visible on standard imaging." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Personal Injury Recovery", "description": "Comprehensive treatment plans for slips, falls, and other injury cases." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Extremity Adjustments", "description": "Realignment of joints in the shoulders, elbows, wrists, hips, knees, and ankles." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cervical Alignment", "description": "Treatment focused on neck alignment and positioning." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Neck Pain Management", "description": "Chiropractic care targeting neck discomfort." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Headache & Migraine Relief", "description": "Chiropractic care addressing headaches and migraines linked to spinal misalignment." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Posture Correction", "description": "Chiropractic services designed to improve postural alignment." } }
+        ]
       }
-    ],
-    "medicalSpecialty": "Chiropractic",
-    "availableLanguage": ["English", "Korean"],
-    "founder": {
-      "@type": "Physician",
-      "name": "Dr. Hyeon Joo Park, D.C., M.S.",
-      "medicalSpecialty": "Chiropractic",
-      "knowsAbout": ["Upper Cervical Chiropractic", "Palmer Method", "TMJ", "Whiplash"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Yonsei Chiropractic",
+      "url": "https://www.yonseichiro.com/en/",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://www.yonseichiro.com/en/#business" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" }
+      ]
     }
-  };
+  ];
 
   return (
     <html lang={lng} className="scroll-pt-[104px]" suppressHydrationWarning>
@@ -110,6 +181,27 @@ export default async function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
+
+        {/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-C6EERQJKNM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-C6EERQJKNM');
+          `}
+        </Script>
+
+        {/* Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="wxhm81wqsTw9eoOC4QZeWZ3YnKjIE3PJpXF-JzeHqrI"
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `

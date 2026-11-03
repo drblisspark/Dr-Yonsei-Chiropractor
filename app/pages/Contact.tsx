@@ -16,7 +16,32 @@ const Contact: React.FC<{ lng?: string; initialIsMobile?: boolean }> = ({ lng, i
     }
   }, [lng, i18n]);
 
-  return isMobile ? <ContactMobile /> : <ContactDesktop />;
+  const contactSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "url": "https://www.yonseichiro.com/en/contact",
+      "mainEntity": { "@id": "https://www.yonseichiro.com/en/#business" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yonseichiro.com/en/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.yonseichiro.com/en/contact" }
+      ]
+    }
+  ];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
+      {isMobile ? <ContactMobile /> : <ContactDesktop />}
+    </>
+  );
 };
 
 export default Contact;

@@ -1,0 +1,3 @@
+# Yonsei Chiropractic
+
+AI crawlers should follow the crawl restrictions in /robots.txt and avoid private files and configuration paths.
